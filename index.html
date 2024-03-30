@@ -3,18 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I'm proud of U</title>
+<title>I'm Proud of U</title>
 <link rel="stylesheet" href="vid.css">
 <link rel="shortcut icon" href="heart.png" type="image/x-icon">
+<style>
+  body {
+    background-color: #0c0f12;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #006400;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 1s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .floating-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 1s ease-in-out;
+    width: 200px;
+    height: auto;
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var downloadBtn = document.querySelector(".download-btn");
+    var img = document.querySelector(".floating-img");
+    var viewportWidth = window.innerWidth;
+    var viewportHeight = window.innerHeight;
+
+    function moveElements() {
+      var maxBtnX = viewportWidth - downloadBtn.offsetWidth;
+      var maxBtnY = viewportHeight - downloadBtn.offsetHeight;
+      var randomBtnX = Math.random() * maxBtnX;
+      var randomBtnY = Math.random() * maxBtnY;
+      downloadBtn.style.transform = `translate(${randomBtnX}px, ${randomBtnY}px)`;
+
+      var maxImgX = viewportWidth - img.width;
+      var maxImgY = viewportHeight - img.height;
+      var randomImgX = Math.random() * maxImgX;
+      var randomImgY = Math.random() * maxImgY;
+      img.style.transform = `translate(${randomImgX}px, ${randomImgY}px)`;
+    }
+
+    setInterval(moveElements, 3000);
+  });
+</script>
 </head>
 <body>
 
 <div class="video-container">
-  <video controls autoplay>
-    <source src="ILoveUTanu.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <a href="https://drive.google.com/uc?export=download&id=1ID8Bl_IIcYyxr4kQN-6hiIJsd31SAyZu" class="download-btn">Download Video</a>
 </div>
+
+<img src="qmark.png" alt="Floating Image" class="floating-img">
 
 </body>
 </html>
